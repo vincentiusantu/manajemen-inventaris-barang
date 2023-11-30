@@ -11,7 +11,7 @@ def inventaris():
 
 def simpan_item(inventaris):
     with open('inventaris.csv', 'w', newline=' ')as file:
-        data = ['Nama','Jumlah','Deskripsi']
+        data = ['Nama Barang','Jumlah','Deskripsi']
         tulis = csv.DictWriter(file, data=data)
         tulis.writeheader()
         for nama, a in inventaris.item():
@@ -20,3 +20,14 @@ def simpan_item(inventaris):
             )
 
 def tambah_item(inventaris):
+    nama = input("Masukkan Nama Barang : ")
+    jumlah = int(input("Masukkan Jumlah Barang : "))
+    deskripsi = input("Masukkan Deskripsi Barang : ")
+
+    if nama in inventaris :
+        inventaris [nama]['Jumlah'] += jumlah
+    else :
+        inventaris [nama]={'Jumlah': jumlah, 'Deskripsi': deskripsi}
+    print(f"{jumlah}, {nama}(s) berhasil ditambahkan !")
+
+
