@@ -43,6 +43,17 @@ def cari_barang(inventaris):
         print("Jumlah\t\t\t:", inventaris[cari_nama]['Jumlah'])
         print("Deskripsi Barang\t:", inventaris[cari_nama]['Deskripsi'])
 
+def hapus_item (inventaris):
+    hapus_nama = input ("Masukkan nama barang yang ingin dihapus : ")
+    if hapus_nama in inventaris :
+        print ("Data berikut berhasil dihapus : ")
+        print ("Nama Barang\t\t: ",hapus_nama)
+        print("Jumlah\t\t\t:", inventaris[hapus_nama]['Jumlah'])
+        print("Deskripsi Barang\t:", inventaris[hapus_nama]['Deskripsi'])
+        del inventaris [hapus_nama]
+        
+    else : print("Barang tidak ditemukan\n")
+
 # def statistik(inventaris):
 
 inventaris = inventaris()
@@ -69,6 +80,8 @@ while True:
         cari_barang(inventaris)
     elif choice == '4':
         print("\n\n===== Hapus Barang =====\n")
+        hapus_item(inventaris)
+        simpan_item(inventaris)
     elif choice == '5':
         print("\n\n===== Statistik Inventaris =====\n")
     elif choice == 'x':
