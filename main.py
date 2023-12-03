@@ -23,14 +23,14 @@ def tampilkan_barang(inventaris):
     with open('inventaris.csv', 'r') as file:
         reader = csv.DictReader(file)
         
-        print(f"{'Nama Barang':<15} {'Jumlah':<10} {'Deskripsi':<5}")
+        print(f"{'Nama Barang': } {'Jumlah': } {'Deskripsi': }")
         print("="*35)
         
         for row in reader:
             nama_barang = row['nama_barang']
             jumlah = row['Jumlah']
             deskripsi = row['Deskripsi']
-            print(f"{nama_barang:<15} {jumlah:<10} {deskripsi:<5}")
+            print(f"{nama_barang: } {jumlah: } {deskripsi: }")
 
 tampilkan_barang('inventaris.csv')
 
