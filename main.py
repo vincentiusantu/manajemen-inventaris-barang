@@ -19,6 +19,12 @@ def simpan_item(inventaris):
                 {'Nama Barang': nama, 'Jumlah': a['Jumlah'], 'Deskripsi': a['Deskripsi']}
             )
 
+def tampilkan_barang(inventaris):
+        for key in inventaris:
+            jumlah = inventaris [key]['Jumlah']
+            deskripsi = inventaris[key]['Deskripsi']
+            print(f"Nama Barang\t\t {key} \nJumlah\t\t\t : {jumlah}\n Deskripsi Barang \t {deskripsi}")
+
 def tambah_item(inventaris):
     nama = input("Masukkan Nama Barang : ")
     jumlah = int(input("Masukkan Jumlah Barang : "))
@@ -49,10 +55,11 @@ while True:
 
     choice = input("Pilih Menu :")
     if choice == '1':
+        print("=== Tambah Barang ===")
         tambah_item(inventaris)
         simpan_item(inventaris)
-    # elif choice == '2':
-        
+    elif choice == '2':
+        tampilkan_barang(inventaris)
     elif choice == '3':
         cari_item(inventaris)
     # elif choice == '4':
