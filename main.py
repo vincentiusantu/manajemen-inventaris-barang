@@ -19,6 +19,21 @@ def simpan_item(inventaris):
                 {'Nama Barang': nama, 'Jumlah': a['Jumlah'], 'Deskripsi': a['Deskripsi']}
             )
 
+def tampilkan_barang(inventaris):
+    with open('inventaris.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        
+        print(f"{'Nama Barang':<15} {'Jumlah':<10} {'Deskripsi':<5}")
+        print("="*35)
+        
+        for row in reader:
+            nama_barang = row['nama_barang']
+            jumlah = row['Jumlah']
+            deskripsi = row['Deskripsi']
+            print(f"{nama_barang:<15} {jumlah:<10} {deskripsi:<5}")
+
+tampilkan_barang('inventaris.csv')
+
 def tambah_item(inventaris):
     nama = input("Masukkan Nama Barang : ")
     jumlah = int(input("Masukkan Jumlah Barang : "))
