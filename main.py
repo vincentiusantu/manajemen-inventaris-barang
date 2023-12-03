@@ -20,19 +20,10 @@ def simpan_item(inventaris):
             )
 
 def tampilkan_barang(inventaris):
-    with open('inventaris.csv', 'r') as file:
-        reader = csv.DictReader(file)
-        
-        print(f"{'Nama Barang': } {'Jumlah': } {'Deskripsi': }")
-        print("="*35)
-        
-        for row in reader:
-            nama_barang = row['nama_barang']
-            jumlah = row['Jumlah']
-            deskripsi = row['Deskripsi']
-            print(f"{nama_barang: } {jumlah: } {deskripsi: }")
-
-tampilkan_barang('inventaris.csv')
+        for key in inventaris:
+            jumlah = inventaris [key]['Jumlah']
+            deskripsi = inventaris[key]['Deskripsi']
+            print(f"Nama Barang\t\t {key} \nJumlah\t\t\t : {jumlah}\n Deskripsi Barang \t {deskripsi}")
 
 def tambah_item(inventaris):
     nama = input("Masukkan Nama Barang : ")
@@ -64,10 +55,11 @@ while True:
 
     choice = input("Pilih Menu :")
     if choice == '1':
+        print("=== Tambah Barang ===")
         tambah_item(inventaris)
         simpan_item(inventaris)
-    # elif choice == '2':
-        
+    elif choice == '2':
+        tampilkan_barang(inventaris)
     elif choice == '3':
         cari_item(inventaris)
     # elif choice == '4':
