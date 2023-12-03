@@ -20,12 +20,12 @@ def simpan_item(inventaris):
             )
 
 def tampilkan_barang(inventaris):
-        for key in inventaris:
-            jumlah = inventaris [key]['Jumlah']
-            deskripsi = inventaris[key]['Deskripsi']
-            print(f"Nama Barang\t\t {key} \nJumlah\t\t\t : {jumlah}\n Deskripsi Barang \t {deskripsi}")
+    for key in inventaris:
+        jumlah = inventaris [key]['Jumlah']
+        deskripsi = inventaris[key]['Deskripsi']
+        print(f"Nama Barang\t\t: {key} \nJumlah\t\t\t: {jumlah}\nDeskripsi Barang\t: {deskripsi}\n\n")
 
-def tambah_item(inventaris):
+def tambah_barang(inventaris):
     nama = input("Masukkan Nama Barang : ")
     jumlah = int(input("Masukkan Jumlah Barang : "))
     deskripsi = input("Masukkan Deskripsi Barang : ")
@@ -36,12 +36,14 @@ def tambah_item(inventaris):
         inventaris [nama]={'Jumlah': jumlah, 'Deskripsi': deskripsi}
     print(f"{jumlah}, {nama}(s) berhasil ditambahkan !")
 
-def cari_item(inventaris):
+def cari_barang(inventaris):
     cari_nama = input("Mau cari barang apa?")
     if cari_nama in inventaris:
         print("\nNama Barang\t\t:", cari_nama)
         print("Jumlah\t\t\t:", inventaris[cari_nama]['Jumlah'])
         print("Deskripsi Barang\t:", inventaris[cari_nama]['Deskripsi'])
+
+# def statistik(inventaris):
 
 inventaris = inventaris()
 
@@ -51,18 +53,23 @@ while True:
     print("2. Tampilkan Barang")
     print("3. Cari Barang")
     print("4. Hapus Barang")
+    print("5. Statistik Inventaris")
     print("x. Exit")
 
     choice = input("Pilih Menu :")
     if choice == '1':
-        print("=== Tambah Barang ===")
-        tambah_item(inventaris)
+        print("\n\n===== Tambah Barang =====\n")
+        tambah_barang(inventaris)
         simpan_item(inventaris)
     elif choice == '2':
+        print("\n\n===== Tampilkan Barang =====\n")
         tampilkan_barang(inventaris)
     elif choice == '3':
-        cari_item(inventaris)
-    # elif choice == '4':
-        
+        print("\n\n===== Cari Barang =====\n")
+        cari_barang(inventaris)
+    elif choice == '4':
+        print("\n\n===== Hapus Barang =====\n")
+    elif choice == '5':
+        print("\n\n===== Statistik Inventaris =====\n")
     elif choice == 'x':
         break
